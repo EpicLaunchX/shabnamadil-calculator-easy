@@ -10,8 +10,8 @@ def calculator():
 
 
 def test_divide_valid_operands(calculator):
-    operands = operands_factory(3, 2)
-    assert calculator.divide(operands) == 1.5
+    operands = operands_factory(6, 3)
+    assert calculator.divide(operands) == 2
 
 
 def test_divide_negative_operands(calculator):

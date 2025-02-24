@@ -1,3 +1,5 @@
+from typing import Union
+
 from ..domain.models import Operands
 
 
@@ -12,5 +14,5 @@ class Calculator:
     def multiply(self, operands: Operands) -> int:
         return operands.first_operand * operands.second_operand
 
-    def divide(self, operands: Operands) -> int:
+    def divide(self, operands: Operands) -> Union[int, float]:
         return operands.first_operand / operands.second_operand
