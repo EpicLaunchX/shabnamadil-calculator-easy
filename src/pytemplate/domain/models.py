@@ -13,5 +13,5 @@ class Operands:
             raise ValueError("Second operand must be an integer")
 
 
-def operands_factory(first_operand: int, second_operand: int):
+def operands_factory(first_operand: int, second_operand: int) -> Operands:
     return Operands(first_operand, second_operand)
