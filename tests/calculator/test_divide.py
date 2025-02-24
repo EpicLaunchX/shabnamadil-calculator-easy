@@ -11,20 +11,17 @@ def calculator():
 
 def test_divide_valid_operands(calculator):
     operands = operands_factory(3, 2)
-    result = calculator.divide(operands)
-    assert result == 1.5
+    assert calculator.divide(operands) == 1.5
 
 
 def test_divide_negative_operands(calculator):
     operands = operands_factory(-3, -5)
-    result = calculator.divide(operands)
-    assert result == 0.6
+    assert calculator.divide(operands) == 0.6
 
 
 def test_divide_zero_operands(calculator):
     operands = operands_factory(0, 5)
-    result = calculator.divide(operands)
-    assert result == 0
+    assert calculator.divide(operands) == 0
 
 
 def test_divide_by_zero(calculator):
@@ -35,5 +32,4 @@ def test_divide_by_zero(calculator):
 
 def test_divide_mixed_operands(calculator):
     operands = operands_factory(3, -5)
-    result = calculator.divide(operands)
-    assert result == -0.6
+    assert calculator.divide(operands) == -0.6

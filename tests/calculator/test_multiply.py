@@ -11,23 +11,19 @@ def calculator():
 
 def test_multiply_valid_operands(calculator):
     operands = operands_factory(3, 5)
-    result = calculator.multiply(operands)
-    assert result == 15
+    assert calculator.multiply(operands) == 15
 
 
 def test_multiply_negative_operands(calculator):
     operands = operands_factory(-3, -5)
-    result = calculator.multiply(operands)
-    assert result == 15
+    assert calculator.multiply(operands) == 15
 
 
 def test_multiply_zero_operands(calculator):
     operands = operands_factory(0, 5)
-    result = calculator.multiply(operands)
-    assert result == 0
+    assert calculator.multiply(operands) == 0
 
 
 def test_multiply_mixed_operands(calculator):
     operands = operands_factory(3, -5)
-    result = calculator.multiply(operands)
-    assert result == -15
+    assert calculator.multiply(operands) == -15
