@@ -1,6 +1,6 @@
-from src.pytemplate.domain.models import operands_factory
-from src.pytemplate.service.calculator import Calculator
-from src.pytemplate.utils.common import get_action_input, get_operand_input
+from pytemplate.domain.models import operands_factory
+from pytemplate.service.calculator import Calculator
+from pytemplate.utils.common import get_action_input, get_operand_input
 
 
 def main():
