@@ -1,34 +1,25 @@
 from src.pytemplate.domain.models import operands_factory
 from src.pytemplate.service.calculator import Calculator
+from src.pytemplate.utils.common import get_action_input, get_operand_input
 
 
 def main():
-    try:
-        first_operand = int(input("Enter first operand:"))
-        second_operand = int(input("Enter second operand:"))
-    except ValueError:
-        return "Error: Invalid input. Please enter valid integers."
-
-    action = input("Enter action (add, subtract, divide, multiply):")
-
-    if action.lower() not in ["add", "subtract", "divide", "multiply"]:
-        return "Error: Invalid action. Please enter one of the following actions: add, subtract, divide, multiply."
+    first_operand = get_operand_input("Enter first operand:")
+    second_operand = get_operand_input("Enter second operand:")
+    action = get_action_input()
 
     try:
-        if action.lower() == "add":
-            return Calculator().add(operands_factory(first_operand, second_operand))
+        operations = {
+            "add": Calculator().add,
+            "subtract": Calculator().subtract,
+            "divide": Calculator().divide,
+            "multiply": Calculator().multiply,
+        }
 
-        if action.lower() == "subtract":
-            return Calculator().subtract(operands_factory(first_operand, second_operand))
+        return operations[action](operands_factory(first_operand, second_operand))
 
-        if action.lower() == "divide":
-            return Calculator().divide(operands_factory(first_operand, second_operand))
+    except ZeroDivisionError as err:
+        raise ValueError("Error: Cannot divide by zero") from err
 
-        if action.lower() == "multiply":
-            return Calculator().multiply(operands_factory(first_operand, second_operand))
-
-    except ZeroDivisionError:
-        return "Error: Cannot divide by zero"
-
-    except ValueError:
-        return "Error: Invalid input. Please enter valid integers."
+    except ValueError as err:
+        raise ValueError("Error: Invalid input. Please enter a valid integer.") from err
